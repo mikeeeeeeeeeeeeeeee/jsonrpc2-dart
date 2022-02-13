@@ -86,7 +86,7 @@ abstract class ServerProxyBase {
   }
 
   dynamic _handleDecoded(Map resp) {
-    if (resp.containsKey('error')) {
+    if (resp.containsKey('error') && resp['error'] != null) {
       throw RuntimeException.fromJson(resp['error']);
     }
     return resp['result'];
